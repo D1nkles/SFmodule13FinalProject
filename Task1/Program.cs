@@ -4,8 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Введите путь до текста: ");
+        Console.Write("Введите путь до текста: ");
         string PATH = Console.ReadLine();
+
         if (!string.IsNullOrEmpty(PATH) && File.Exists(PATH))
         {
             List<char> characterArr = new List<char>();
@@ -40,6 +41,13 @@ class Program
             sw.Stop();
 
             Console.WriteLine("Время добавления в эл-ов в LinkedList: " + sw.Elapsed.TotalMilliseconds);
+        }
+
+        else 
+        {
+            Console.WriteLine("Ошибка: файла по такому пути нет, или вы ввели пустое знаечние!!!\n" +
+                              "Нажмите любую клавишу, чтобы закрыть программу...");
+            Console.ReadKey();
         }
     }
 }
